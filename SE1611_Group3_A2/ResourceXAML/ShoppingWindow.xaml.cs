@@ -33,6 +33,7 @@ namespace SE1611_Group3_A2.ResourceXAML
 
         private void LoadData()
         {
+            // load data cbGenre
             cbGenre.Items.Clear();
             cbGenre.ItemsSource = genreController.getAllGenre();
             cbGenre.DisplayMemberPath = "Name";
@@ -41,17 +42,31 @@ namespace SE1611_Group3_A2.ResourceXAML
             //load albums
             List<Album> albums = albumController.getAlbumsByLimitOffet(0, 0);
             viewAlbums(albums);
-            lbPage.Content = 0;
+            tbPage.Text = "0";
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            tbPage.Text = "0";
+
+            // Enable btnPrevious & btnNext
+            btnNext.IsEnabled = true;
+            if (int.Parse(tbPage.Text.ToString()) == 0)
+            {
+                btnPrevious.IsEnabled = false;
+            }
+            else
+            {
+                btnPrevious.IsEnabled = true;
+            }
+
             if (cbGenre.Text.Length == 0)
             {
                 try
                 {
+                    // Search all albums
                     int countAlbums = albumController.getAllAlbums().Count();
-                    List<Album> albums = albumController.getAlbumsByLimitOffet(int.Parse(lbPage.Content.ToString()), 0);
+                    List<Album> albums = albumController.getAlbumsByLimitOffet(int.Parse(tbPage.Text.ToString()), 0);
                     viewAlbums(albums);
                     MessageBox.Show("Found " + countAlbums + " results!", "Search");
                 }
@@ -59,15 +74,27 @@ namespace SE1611_Group3_A2.ResourceXAML
                 {
                     MessageBox.Show(ex.Message, "Exception");
                 }
-
             }
             else
             {
                 try
                 {
                     int genreIdSelected = int.Parse(cbGenre.SelectedValue.ToString());
+                    //Check btnnNext
+                    int current_page = int.Parse(tbPage.Text.ToString()) + 1;
+
+                    List<Album> albums_Raw = genreIdSelected == 0 ? albumController.getAllAlbums()
+                        : albumController.getAlbumsByGenreId(genreIdSelected);
+                    int total_page = albums_Raw.Count % 4 == 0 ? albums_Raw.Count / 4 : albums_Raw.Count / 4 + 1;
+
+                    if (total_page == current_page)
+                    {
+                        btnNext.IsEnabled = false;
+                    }
+
+                    //Search
                     int countAlbums = albumController.getAlbumsByGenreId(genreIdSelected).Count();
-                    List<Album> albums = albumController.getAlbumsByLimitOffet(int.Parse(lbPage.Content.ToString()), genreIdSelected);
+                    List<Album> albums = albumController.getAlbumsByLimitOffet(int.Parse(tbPage.Text.ToString()), genreIdSelected);
                     viewAlbums(albums);
                     MessageBox.Show("Found " + countAlbums + " results!", "Search");
                 }
@@ -182,23 +209,23 @@ namespace SE1611_Group3_A2.ResourceXAML
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
+            int nextPage = int.Parse(tbPage.Text.ToString()) + 1;
+            int genreIdSelected;
             try
             {
-                int nextPage = int.Parse(lbPage.Content.ToString()) + 1;
-                int genreIdSelected;
-                if (cbGenre.Text.Length == 0) genreIdSelected = 0;
-                else genreIdSelected = int.Parse(cbGenre.SelectedValue.ToString());
 
-                List<Album> albums = albumController.getAlbumsByLimitOffet(nextPage, genreIdSelected);
-                if (albums.Count == 0)
+                if (cbGenre.Text.Length == 0)
                 {
-                    MessageBox.Show("Out of stock!", "Next");
+                    genreIdSelected = 0;
                 }
                 else
                 {
-                    viewAlbums(albums);
-                    lbPage.Content = int.Parse(lbPage.Content.ToString()) + 1;
+                    genreIdSelected = int.Parse(cbGenre.SelectedValue.ToString());
                 }
+
+                List<Album> albums = albumController.getAlbumsByLimitOffet(nextPage, genreIdSelected);
+                viewAlbums(albums);
+                tbPage.Text = (int.Parse(tbPage.Text.ToString()) + 1).ToString();
             }
             catch (Exception ex)
             {
@@ -206,31 +233,18 @@ namespace SE1611_Group3_A2.ResourceXAML
             }
         }
 
-        private void cbGenre_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            lbPage.Content = 0;
-        }
-
         private void btnPrevious_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (int.Parse(lbPage.Content.ToString()) == 0)
-                {
-                    MessageBox.Show("These are the first albums in stock!", "Previous");
-                    return;
-                }
-                else
-                {
-                    int nextPage = int.Parse(lbPage.Content.ToString()) - 1;
-                    int genreIdSelected;
-                    if (cbGenre.Text.Length == 0) genreIdSelected = 0;
-                    else genreIdSelected = int.Parse(cbGenre.SelectedValue.ToString());
+                int nextPage = int.Parse(tbPage.Text.ToString()) - 1;
+                int genreIdSelected;
+                if (cbGenre.Text.Length == 0) genreIdSelected = 0;
+                else genreIdSelected = int.Parse(cbGenre.SelectedValue.ToString());
 
-                    List<Album> albums = albumController.getAlbumsByLimitOffet(nextPage, genreIdSelected);
-                    viewAlbums(albums);
-                    lbPage.Content = int.Parse(lbPage.Content.ToString()) - 1;
-                }
+                List<Album> albums = albumController.getAlbumsByLimitOffet(nextPage, genreIdSelected);
+                viewAlbums(albums);
+                tbPage.Text = (int.Parse(tbPage.Text.ToString()) - 1).ToString();
             }
             catch (Exception ex)
             {
@@ -244,7 +258,7 @@ namespace SE1611_Group3_A2.ResourceXAML
             {
                 DateTime today = DateTime.UtcNow.Date;
                 int album1_Id = int.Parse(lbAlbum1_Id.Content.ToString());
-                cartController.addCart(new Cart("user", album1_Id,1,today));
+                cartController.addCart(new Cart("user", album1_Id, 1, today));
                 MessageBox.Show("Add to cart successfully!", "Add to cart");
             }
             catch (Exception ex)
@@ -298,6 +312,43 @@ namespace SE1611_Group3_A2.ResourceXAML
             }
         }
 
+        private void tbPage_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int current_page = int.Parse(tbPage.Text.ToString()) + 1;
+            int genreIdSelected;
+
+            // Disable btnPrevious
+            if (int.Parse(tbPage.Text.ToString()) == 0)
+            {
+                btnPrevious.IsEnabled = false;
+            }
+            // Enable btnPrevious
+            else
+            {
+                btnPrevious.IsEnabled = true;
+            }
+
+            if (cbGenre.Text.Length == 0)
+            {
+                genreIdSelected = 0;
+            }
+            else
+            {
+                genreIdSelected = int.Parse(cbGenre.SelectedValue.ToString());
+            }
+
+            List<Album> albums_Raw = genreIdSelected == 0 ? albumController.getAllAlbums() : albumController.getAlbumsByGenreId(genreIdSelected);
+            int total_page = albums_Raw.Count % 4 == 0 ? albums_Raw.Count / 4 : albums_Raw.Count / 4 + 1;
+
+            if (total_page == current_page)
+            {
+                btnNext.IsEnabled = false;
+            }
+            else
+            {
+                btnNext.IsEnabled = true;
+            }
+        }
         private void btnCheckout_Click(object sender, RoutedEventArgs e)
         {
             // link to Cart_Window
