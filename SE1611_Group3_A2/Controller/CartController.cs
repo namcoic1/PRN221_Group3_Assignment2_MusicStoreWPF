@@ -10,6 +10,10 @@ namespace SE1611_Group3_A2.Controller
     internal class CartController
     {
         MusicStoreContext context = new MusicStoreContext();
+        public List<Cart> getAllCarts()
+        {
+            return context.Carts.ToList();
+        }
         public void addCart(Cart cart)
         {
             context.Carts.Add(cart);

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\ky7_Code\PRN221_Code\SE1611_Group3_A2\obj\Debug\net6.0-windows\
+E:\myC#\myAssign2_WPF\PRN221_Group3_Assignment2_MusicStoreWPF\SE1611_Group3_A2\obj\Debug\net6.0-windows\
 SE1611_Group3_A2
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\ky7_Code\PRN221_Code\SE1611_Group3_A2\App.xaml
-2-924442620
-3-2080369438
-151810868541
-220-1543613476
-MainWindow.xaml;ResourceXAML\ShoppingWindow.xaml;
+E:\myC#\myAssign2_WPF\PRN221_Group3_Assignment2_MusicStoreWPF\SE1611_Group3_A2\App.xaml
+6-1954435590
+41481399292
+21-914489456
+2201766741559
+MainWindow.xaml;ResourceXAML\AlbumWindow.xaml;ResourceXAML\CartWindow.xaml;ResourceXAML\CheckoutWindow.xaml;ResourceXAML\LoginWindow.xaml;ResourceXAML\ShoppingWindow.xaml;
 
 False
 
