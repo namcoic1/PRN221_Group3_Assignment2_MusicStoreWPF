@@ -2340,24 +2340,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dell\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\myC#\\myAssign2_WPF\\PRN221_Group3_Assignment2_MusicStoreWPF\\SE1611_Group3_A2\\SE1611_Group3_A2.csproj",
+      "projectUniqueName": "D:\\TERM_7\\PRN221\\project\\Assignment2\\PRN221_Group3_Assignment2_MusicStoreWPF\\SE1611_Group3_A2\\SE1611_Group3_A2.csproj",
       "projectName": "SE1611_Group3_A2",
-      "projectPath": "E:\\myC#\\myAssign2_WPF\\PRN221_Group3_Assignment2_MusicStoreWPF\\SE1611_Group3_A2\\SE1611_Group3_A2.csproj",
-      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "E:\\myC#\\myAssign2_WPF\\PRN221_Group3_Assignment2_MusicStoreWPF\\SE1611_Group3_A2\\obj\\",
+      "projectPath": "D:\\TERM_7\\PRN221\\project\\Assignment2\\PRN221_Group3_Assignment2_MusicStoreWPF\\SE1611_Group3_A2\\SE1611_Group3_A2.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\TERM_7\\PRN221\\project\\Assignment2\\PRN221_Group3_Assignment2_MusicStoreWPF\\SE1611_Group3_A2\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

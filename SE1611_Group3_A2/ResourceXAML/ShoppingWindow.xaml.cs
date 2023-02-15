@@ -301,6 +301,7 @@ namespace SE1611_Group3_A2.ResourceXAML
         private void btnCheckout_Click(object sender, RoutedEventArgs e)
         {
             // link to Cart_Window
+            new CartWindow().Show();
         }
     }
 }
