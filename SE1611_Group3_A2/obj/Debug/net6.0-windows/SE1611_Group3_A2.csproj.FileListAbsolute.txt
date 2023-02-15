@@ -289,3 +289,4 @@ D:\TERM_7\PRN221\project\Assigment2_backup\PRN221_Group3_Assignment2_MusicStoreW
 D:\TERM_7\PRN221\project\Assigment2_backup\PRN221_Group3_Assignment2_MusicStoreWPF\SE1611_Group3_A2\obj\Debug\net6.0-windows\SE1611_Group3_A2.pdb
 D:\TERM_7\PRN221\project\Assigment2_backup\PRN221_Group3_Assignment2_MusicStoreWPF\SE1611_Group3_A2\obj\Debug\net6.0-windows\SE1611_Group3_A2.genruntimeconfig.cache
 D:\TERM_7\PRN221\project\Assigment2_backup\PRN221_Group3_Assignment2_MusicStoreWPF\SE1611_Group3_A2\obj\Debug\net6.0-windows\ref\SE1611_Group3_A2.dll
+D:\TERM_7\PRN221\project\Assigment2_backup\PRN221_Group3_Assignment2_MusicStoreWPF\SE1611_Group3_A2\bin\Debug\net6.0-windows\Images\download.jpg
