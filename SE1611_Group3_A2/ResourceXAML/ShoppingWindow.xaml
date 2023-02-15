@@ -27,9 +27,9 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Content="Genre:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <ComboBox x:Name="cbGenre" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" SelectionChanged="cbGenre_SelectionChanged"/>
+                <ComboBox x:Name="cbGenre" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200"/>
                 <Button x:Name="btnSearch" Grid.Column="2" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Click="btnSearch_Click"/>
-                <Label x:Name="lbPage" Visibility="Hidden"/>
+                <TextBox x:Name="tbPage" Visibility="Hidden" TextChanged="tbPage_TextChanged"/>
             </Grid>
             <Grid Grid.Column="1" HorizontalAlignment="Right">
                 <Button x:Name="btnCheckout" Content="Go to cart" Width="80" Margin="0,0,10,0" Click="btnCheckout_Click"/>
