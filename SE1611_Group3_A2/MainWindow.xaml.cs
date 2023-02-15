@@ -55,8 +55,11 @@ namespace SE1611_Group3_A2
 
         private void btnCart_Click(object sender, RoutedEventArgs e)
         {
-            CartWindow cartWindow = new CartWindow();
-            cartWindow.Show();
+            if (accessed)
+            {
+                CartWindow cartWindow = new CartWindow();
+                cartWindow.Show();
+            }
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
