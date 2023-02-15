@@ -7,17 +7,16 @@ using System.Threading.Tasks;
 
 namespace SE1611_Group3_A2.Controller
 {
-    internal class GenreController
+    internal class ArtistController
     {
         MusicStoreContext context = new MusicStoreContext();
-        public List<Genre> getAllGenre()
+        public List<Artist> getAllArtist()
         {
-            return context.Genres.ToList();
+            return context.Artists.ToList();
         }
-        public Genre getGenreByGenreId(int genreId)
+        public Artist getArtistByArtistId(int artistId)
         {
-            return context.Genres.FirstOrDefault(x => x.GenreId == genreId);
+            return context.Artists.FirstOrDefault(x => x.ArtistId == artistId);
         }
-
     }
 }
