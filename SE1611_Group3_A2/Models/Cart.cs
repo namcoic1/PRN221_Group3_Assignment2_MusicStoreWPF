@@ -11,6 +11,14 @@ namespace SE1611_Group3_A2.Models
         public int Count { get; set; }
         public DateTime DateCreated { get; set; }
 
+        public Cart(string cartId, int albumId, int count, DateTime dateCreated)
+        {
+            CartId = cartId;
+            AlbumId = albumId;
+            Count = count;
+            DateCreated = dateCreated;
+        }
+
         public virtual Album Album { get; set; } = null!;
     }
 }
