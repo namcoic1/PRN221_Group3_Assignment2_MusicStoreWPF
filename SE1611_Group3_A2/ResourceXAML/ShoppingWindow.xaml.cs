@@ -21,6 +21,7 @@ namespace SE1611_Group3_A2.ResourceXAML
     /// </summary>
     public partial class ShoppingWindow : Window
     {
+        private MainWindow mainWindow;
         AlbumController albumController = new AlbumController();
         GenreController genreController = new GenreController();
         CartController cartController = new CartController();
@@ -29,6 +30,13 @@ namespace SE1611_Group3_A2.ResourceXAML
         {
             InitializeComponent();
             LoadData();
+        }
+        public ShoppingWindow(MainWindow main)
+        {
+            InitializeComponent();
+            LoadData();
+
+            mainWindow = main;
         }
 
         private void LoadData()
@@ -349,7 +357,22 @@ namespace SE1611_Group3_A2.ResourceXAML
                 btnNext.IsEnabled = true;
             }
         }
-        private void btnCheckout_Click(object sender, RoutedEventArgs e)
+
+        private void btnHome_Click(object sender, RoutedEventArgs e)
+        {
+            if (mainWindow != null)
+            {
+                mainWindow.Close();
+
+                MainWindow newMain = new MainWindow();
+                newMain.accessed = mainWindow.accessed;
+                newMain.setAccessed(mainWindow.role);
+                newMain.Show();
+            }
+            this.Close();
+        }
+
+        private void btnGoToCart_Click(object sender, RoutedEventArgs e)
         {
             // link to Cart_Window
             new CartWindow().Show();

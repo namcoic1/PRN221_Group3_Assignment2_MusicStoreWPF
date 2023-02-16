@@ -23,14 +23,13 @@ namespace SE1611_Group3_A2
     /// </summary>
     public partial class MainWindow : Window
     {
-        private LoginWindow loginWindow;
         private CartController controller = new CartController();
         public bool accessed = false;
+        public string role = "";
 
         public MainWindow()
         {
             InitializeComponent();
-            viewAllCarts();
         }
 
         private void viewAllCarts()
@@ -38,24 +37,41 @@ namespace SE1611_Group3_A2
             int size = controller.getAllCarts().Count;
             btnCart.Content = $"Cart ({size})";
         }
-        public void setAccessed(string role)
+        public void setAccessed(string roleName)
         {
             if (accessed)
             {
-                btnLogin.Content = $"Logout ({role})";
-                btnAlbum.IsEnabled = role.Equals("admin")? true : btnAlbum.IsEnabled;
+                btnLogin.Content = $"Logout ({roleName})";
+                role = roleName;
+                if (roleName.Equals("admin"))
+                {
+                    btnAlbum.IsEnabled = true;
+                    viewAllCarts();
+                }
+                else
+                {
+                    btnAlbum.IsEnabled = false;
+                }
             }
         }
 
         private void btnShopping_Click(object sender, RoutedEventArgs e)
         {
-            ShoppingWindow shoppingWindow = new ShoppingWindow();
-            shoppingWindow.Show();
+            if (accessed)
+            {
+                ShoppingWindow shoppingWindow = new ShoppingWindow(this);
+                shoppingWindow.Show();
+            }
+            else
+            {
+                ShoppingWindow shoppingWindow = new ShoppingWindow();
+                shoppingWindow.Show();
+            }
         }
 
         private void btnCart_Click(object sender, RoutedEventArgs e)
         {
-            if (accessed)
+            if (accessed && role.Equals("admin"))
             {
                 CartWindow cartWindow = new CartWindow();
                 cartWindow.Show();
@@ -64,17 +80,17 @@ namespace SE1611_Group3_A2
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (!accessed)
+            if (accessed)
             {
-                loginWindow = new LoginWindow(this);
-                loginWindow.Show();
+                btnLogin.Content = "Login";
+                new MainWindow().Show();
+                this.Close();
             }
             else
             {
-                btnLogin.Content = "Login";
-                btnAlbum.IsEnabled = false;
-                new MainWindow().Show();
-                this.Close();
+
+                LoginWindow loginWindow = new LoginWindow(this);
+                loginWindow.Show();
             }
         }
 
