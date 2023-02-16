@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/chicken.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/download.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/img.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/music_store.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/rabbit.jpg")]
