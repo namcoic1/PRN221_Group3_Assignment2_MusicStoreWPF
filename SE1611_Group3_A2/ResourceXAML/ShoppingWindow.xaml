@@ -17,13 +17,28 @@
         <!--Header_Page-->
         <Grid Grid.Row="0" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"></ColumnDefinition>
-                <ColumnDefinition Width="210"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="Genre:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <ComboBox x:Name="cbGenre" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200"/>
-            <Button x:Name="btnSearch" Grid.Column="2" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50"/>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="210"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Genre:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <ComboBox x:Name="cbGenre" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200"/>
+                <Button x:Name="btnSearch" Grid.Column="2" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Click="btnSearch_Click"/>
+                <TextBox x:Name="tbPage" Visibility="Hidden" TextChanged="tbPage_TextChanged"/>
+            </Grid>
+            <Grid Grid.Column="1" HorizontalAlignment="Right">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" x:Name="btnHome" Content="Home" Width="80" Margin="0,0,20,0" Click="btnHome_Click" />
+                <Button Grid.Column="1" x:Name="btnGoToCart" Content="Go to cart" Width="80" Margin="0,0,10,0" Click="btnGoToCart_Click" />
+            </Grid>
         </Grid>
 
         <Grid Grid.Row="1" VerticalAlignment="Center">
@@ -44,9 +59,10 @@
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="40"></RowDefinition>
                     </Grid.RowDefinitions>
+                    <Label x:Name="lbAlbum1_Id" Visibility="Hidden"/>
                     <Label x:Name="lbAlbum1" Grid.Row="0" Content="title+price album1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontWeight="Bold"/>
-                    <Image x:Name="imgAlbum1" Grid.Row="1" Height="65" Width="70" Source="D:\ky7_Code\PRN221_Code\SE1611_Group3_A2\Images\img.jpg"/>
-                    <Button x:Name="btnAlbum1" Grid.Row="2" Content="Add to cart" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100"/>
+                    <Image x:Name="imgAlbum1" Grid.Row="1" Height="65" Width="70" Source="/Images/img.jpg"/>
+                    <Button x:Name="btnAlbum1" Grid.Row="2" Content="Add to cart" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="btnAlbum1_Click"/>
                 </Grid>
 
                 <Grid Grid.Column="1" VerticalAlignment="Center">
@@ -55,9 +71,10 @@
                         <RowDefinition Height="*"></RowDefinition>
                         <RowDefinition Height="40"></RowDefinition>
                     </Grid.RowDefinitions>
+                    <Label x:Name="lbAlbum2_Id" Visibility="Hidden"/>
                     <Label x:Name="lbAlbum2" Grid.Row="0" Content="album2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontWeight="Bold"/>
-                    <Image x:Name="imgAlbum2" Grid.Row="1" Height="65" Width="70" Source="D:\ky7_Code\PRN221_Code\SE1611_Group3_A2\Images\img.jpg"/>
-                    <Button x:Name="btnAlbum2" Grid.Row="2" Content="Add to cart" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100"/>
+                    <Image x:Name="imgAlbum2" Grid.Row="1" Height="65" Width="70" Source="/Images/chicken.jpg"/>
+                    <Button x:Name="btnAlbum2" Grid.Row="2" Content="Add to cart" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="btnAlbum2_Click"/>
                 </Grid>
 
             </Grid>
@@ -74,9 +91,10 @@
                         <RowDefinition Height="*"></RowDefinition>
                         <RowDefinition Height="40"></RowDefinition>
                     </Grid.RowDefinitions>
+                    <Label x:Name="lbAlbum3_Id" Visibility="Hidden"/>
                     <Label x:Name="lbAlbum3" Grid.Row="0" Content="album3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontWeight="Bold"/>
-                    <Image x:Name="imgAlbum3" Grid.Row="1" Height="65" Width="70" Source="D:\ky7_Code\PRN221_Code\SE1611_Group3_A2\Images\img.jpg"/>
-                    <Button x:Name="btnAlbum3" Grid.Row="2" Content="Add to cart" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100"/>
+                    <Image x:Name="imgAlbum3" Grid.Row="1" Height="65" Width="70" Source="/Images/rabbit.jpg"/>
+                    <Button x:Name="btnAlbum3" Grid.Row="2" Content="Add to cart" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="btnAlbum3_Click"/>
                 </Grid>
 
                 <Grid Grid.Column="1" VerticalAlignment="Center">
@@ -85,9 +103,10 @@
                         <RowDefinition Height="*"></RowDefinition>
                         <RowDefinition Height="40"></RowDefinition>
                     </Grid.RowDefinitions>
+                    <Label x:Name="lbAlbum4_Id" Visibility="Hidden"/>
                     <Label x:Name="lbAlbum4" Grid.Row="0" Content="album4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontWeight="Bold"/>
-                    <Image x:Name="imgAlbum4" Grid.Row="1" Height="65" Width="70" Source="D:\ky7_Code\PRN221_Code\SE1611_Group3_A2\Images\img.jpg"/>
-                    <Button x:Name="btnAlbum4" Grid.Row="2" Content="Add to cart" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100"/>
+                    <Image x:Name="imgAlbum4" Grid.Row="1" Height="65" Width="70" Source="/Images/img.jpg"/>
+                    <Button x:Name="btnAlbum4" Grid.Row="2" Content="Add to cart" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="btnAlbum4_Click"/>
                 </Grid>
 
             </Grid>
@@ -100,8 +119,8 @@
                 <ColumnDefinition Width="20"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnPrevious" Grid.Column="0" Content="Previous" HorizontalAlignment="Right" VerticalAlignment="Center" Width="74"/>
-            <Button x:Name="btnNext" Grid.Column="2" Content="Next" HorizontalAlignment="Left" VerticalAlignment="Center" Width="52"/>
+            <Button x:Name="btnPrevious" Grid.Column="0" Content="Previous" HorizontalAlignment="Right" VerticalAlignment="Center" Width="74" Click="btnPrevious_Click"/>
+            <Button x:Name="btnNext" Grid.Column="2" Content="Next" HorizontalAlignment="Left" VerticalAlignment="Center" Width="52" Click="btnNext_Click"/>
         </Grid>
 
     </Grid>

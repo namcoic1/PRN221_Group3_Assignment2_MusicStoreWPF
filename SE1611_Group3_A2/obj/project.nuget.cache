@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oPk+omdwMt6N5a5h2kpPRArzkNt9dJ+o7EsdfYHzf5g5Y2maEd+xkhfi+4/BvPSpf6QpdM3URZfFpHcN89WtGQ==",
+  "dgSpecHash": "MsoRVGugUmtyDcD7rs1VH/XxloOpA9nlJ37xK+FxL++1wzSlBOEf4qVXzS8+UQ5ZxfIkn6mv5LXf9T+UpOLbfg==",
   "success": true,
-  "projectFilePath": "D:\\ky7_Code\\PRN221_Code\\SE1611_Group3_A2\\SE1611_Group3_A2.csproj",
+  "projectFilePath": "D:\\ky7_Code\\PRN221_Code\\Gitlab_MusicStore_A2\\PRN211_Group3_Assignment2_MusicStoreWPF\\PRN221_Group3_Assignment2_MusicStoreWPF\\SE1611_Group3_A2\\SE1611_Group3_A2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
