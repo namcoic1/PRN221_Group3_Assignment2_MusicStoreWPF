@@ -173,7 +173,7 @@ namespace SE1611_Group3_A2.ResourceXAML {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SE1611_Group3_A2;component/resourcexaml/albumwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SE1611_Group3_A2;V1.0.0.0;component/resourcexaml/albumwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ResourceXAML\AlbumWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
